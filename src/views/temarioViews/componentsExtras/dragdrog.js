@@ -303,7 +303,7 @@ class Actividad1 extends Component {
         </Col>
 
         <Col xs="12" className=" mt-3  centrado-fila">
-          <button className="btn btn-primary">Enviar</button>
+         
         </Col>
         <Col xs="12" className=" mt-3 centrado-fila ">
           <Nota
