@@ -6,41 +6,34 @@ export default {
       class: 'text-center',
     },
     {
-      name: '¿QUÉ ES ETIQUETA TELEFONICA ?',
+      name: 'Objetivo',
       icon: 'icon-tag',
      
     },
 
     {
-      name: 'ESTRUCTURA DE LA LLAMADA',
+      name: '¿Qué es un cliente dificil?',
       icon: 'icon-tag',
       
     },
 
     {
-      name: 'HABILIDADES NECESARIAS',
+      name: 'Tipos de clientes',
       icon: 'icon-tag',
      
     },
     {
-      name: 'EVALUACIÓN 1',
-      icon: 'icon-puzzle',
-    
-    },
-
-    {
-      name: 'HABILIDADES TECNICAS',
+      name: 'Algunos consejos',
       icon: 'icon-tag',
-      
+     
     },
-
-  
-
     {
-      name: 'EVALUACIÓN 2',
+      name: 'EVALUACIÓN ',
       icon: 'icon-puzzle',
     
     },
+
+   
     {
       name: 'DESPEDIDA',
       icon: 'icon-tag',
