@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { ReactSortable } from 'react-sortablejs'
 import Nota from './notasReferencia'
-import { Row, Col } from 'reactstrap'
+import { Row, Col, Button } from 'reactstrap'
+import AuthService from '../../../services/AuthService'
+import API_CCS from '../../../services/API_CCS'
+const API = new API_CCS()
 
 class Actividad1 extends Component {
   constructor(props) {
     super(props)
+    this.Auth = new AuthService()
     this.state = {
       list: [
         {
@@ -42,6 +46,17 @@ class Actividad1 extends Component {
       list8: [],
       list9: [],
       list10: [],
+      id_ccs: this.Auth.getProfile().id_ccs,
+      form: 'clientesDificilesATC-1',
+    }
+  }
+
+  async onSave(e) {
+    try {
+      var respuesta = await API.guardaActividad(this.state)
+      alert('Se guardo la actividad 1, con id: ' + respuesta[0].id)
+    } catch (err) {
+      console.log('loggea si hay un error')
     }
   }
 
@@ -302,15 +317,19 @@ class Actividad1 extends Component {
           </div>
         </Col>
 
-        <Col xs="12" className=" mt-3  centrado-fila">
-         
-        </Col>
-        <Col xs="12" className=" mt-3 centrado-fila ">
+        <Col xs="12" className=" mt-1  centrado-fila">
           <Nota
             title1="Instrucción:"
-            content1="Arrastre los las Letras correctas al recuadro."
+            content1="Arrastre  las palabras correctas al recuadro."
           />
         </Col>
+        <Col xs="12" className=" mt-3 centrado-fila ">
+          <Button color="primary" onClick={this.onSave.bind(this)}>
+            Enviar
+          </Button>
+        </Col>
+
+        {/* <p>{JSON.stringify(this.state)}</p> */}
       </Row>
     )
   }
