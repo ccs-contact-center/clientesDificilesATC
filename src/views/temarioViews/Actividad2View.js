@@ -18,8 +18,8 @@ class Actividad2View extends Component {
             </CardHeader>
             <CardBody className="">
               <p>
-              De acuerdo al tipo de cliente, llena el paréntesis de la recomendación de manera de atenderle. 
-
+                De acuerdo al tipo de cliente, llena el paréntesis de la
+                recomendación de manera de atenderle.
               </p>
               <ActividadDrag2 />
             </CardBody>
