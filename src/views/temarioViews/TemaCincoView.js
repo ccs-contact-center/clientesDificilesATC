@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { CardBody, CardHeader, Col, Row } from 'reactstrap'
-
 import cinco from '../../assets/img/ImgClientesDificiles/cinco.png'
 
 class TemaCincoView extends Component {
