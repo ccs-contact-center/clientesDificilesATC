@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { ReactSortable } from 'react-sortablejs'
 import Nota from './notasReferencia'
-import { Row, Col } from 'reactstrap'
+import { Row, Col, Button } from 'reactstrap'
+import AuthService from '../../../services/AuthService'
+import API_CCS from '../../../services/API_CCS'
+const API = new API_CCS()
 
 class ActividadDrag2 extends Component {
   constructor(props) {
     super(props)
+    this.Auth = new AuthService()
     this.state = {
       list: [
         {
@@ -42,6 +46,17 @@ class ActividadDrag2 extends Component {
       list8: [],
       list9: [],
       list10: [],
+      id_ccs: this.Auth.getProfile().id_ccs,
+      form: 'clientesDificilesATC-2',
+    }
+  }
+
+  async onSave(e) {
+    try {
+      var respuesta = await API.guardaActividad(this.state)
+      alert('Se guardo la actividad 2, con id: ' + respuesta[0].id)
+    } catch (err) {
+      console.log('loggea si hay un error')
     }
   }
 
@@ -165,8 +180,9 @@ class ActividadDrag2 extends Component {
               </Col>
               <Col xs="10">
                 <p style={{ marginBottom: '0px' }}>
-                No debemos mostrar cansancio ni aburrimiento, tampoco romper su entusiasmo, o entrar en conversaciones o discusiones personales sobre asuntos personales del cliente.
-
+                  No debemos mostrar cansancio ni aburrimiento, tampoco romper
+                  su entusiasmo, o entrar en conversaciones o discusiones
+                  personales sobre asuntos personales del cliente.
                 </p>
               </Col>
             </Row>
@@ -195,10 +211,10 @@ class ActividadDrag2 extends Component {
               </Col>
               <Col xs="10">
                 <p style={{ marginBottom: '0px' }}>
-                Debemos atenderle aportando datos objetivos y hechos probados del producto o servicio que estamos ofreciendo. 
-Escucharlo de forma activa, mostrando interés por sus palabras. 
-Mostrar calma y tranquilidad 
-
+                  Debemos atenderle aportando datos objetivos y hechos probados
+                  del producto o servicio que estamos ofreciendo. Escucharlo de
+                  forma activa, mostrando interés por sus palabras. Mostrar
+                  calma y tranquilidad
                 </p>
               </Col>
             </Row>
@@ -227,8 +243,10 @@ Mostrar calma y tranquilidad
               </Col>
               <Col xs="10">
                 <p style={{ marginBottom: '0px' }}>
-                Resulta inútil tratar de demostrarle que está en un error. Tampoco debemos manifestar impaciencia o debilidad, ni interrumpir bruscamente la conversación, pues se sentirá ofendido.
-
+                  Resulta inútil tratar de demostrarle que está en un error.
+                  Tampoco debemos manifestar impaciencia o debilidad, ni
+                  interrumpir bruscamente la conversación, pues se sentirá
+                  ofendido.
                 </p>
               </Col>
             </Row>
@@ -257,8 +275,9 @@ Mostrar calma y tranquilidad
               </Col>
               <Col xs="10">
                 <p style={{ marginBottom: '0px' }}>
-                No debemos confiarnos demasiado, ya que si se tarda demasiado en cerrar la compra pueden que decidan no realizarla en ese momento debido a su tendencia a la indecisión.
-
+                  No debemos confiarnos demasiado, ya que si se tarda demasiado
+                  en cerrar la compra pueden que decidan no realizarla en ese
+                  momento debido a su tendencia a la indecisión.
                 </p>
               </Col>
             </Row>
@@ -287,9 +306,8 @@ Mostrar calma y tranquilidad
               </Col>
               <Col xs="10">
                 <p style={{ marginBottom: '0px' }}>
-                Nunca elevar la voz aun si no nos contesta, porque pensemos que no nos escucha. 
-Evitar los silencios prolongados
-
+                  Nunca elevar la voz aun si no nos contesta, porque pensemos
+                  que no nos escucha. Evitar los silencios prolongados
                 </p>
               </Col>
             </Row>
@@ -297,13 +315,16 @@ Evitar los silencios prolongados
         </Col>
 
         <Col xs="12" className=" mt-3  centrado-fila">
-          
-        </Col>
-        <Col xs="12" className=" mt-3 centrado-fila ">
+          {/* <p>{JSON.stringify(this.state)}</p> */}
           <Nota
             title1="Instrucción:"
-            content1="Arrastre los las Letras correctas al recuadro."
+            content1="Arrastre las Palabras correctas al recuadro."
           />
+        </Col>
+        <Col xs="12" className=" mt-3 centrado-fila ">
+          <Button color="primary" onClick={this.onSave.bind(this)}>
+            Enviar
+          </Button>
         </Col>
       </Row>
     )
