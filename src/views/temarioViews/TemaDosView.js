@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { CardBody, Col, Row, CardHeader } from 'reactstrap'
-import dos from '../../assets/img/ImgClientesDificiles/dos.png'
+
 import ReactPlayer from 'react-player'
 import atc01 from '../../assets/img/ImgClientesDificiles/atc01.mp4'
 
