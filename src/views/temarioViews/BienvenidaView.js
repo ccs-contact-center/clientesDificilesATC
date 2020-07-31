@@ -45,6 +45,7 @@ class BienvenidaView extends Component {
                 className="img-fluid bordeImagen animated  bounceInRight delay-2s"
               />
             </Col>
+            <animated></animated>
           </Row>
         </CardBody>
       </div>
